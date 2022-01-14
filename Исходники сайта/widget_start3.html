@@ -1,0 +1,371 @@
+﻿<!doctype html>
+  <meta charset="utf-8">
+<html>
+<head>
+<link rel="stylesheet" href="jquery-ui.css">
+  <script src="jquery-3.2.1.js"></script>
+  <script src="jquery-ui.js"></script>
+<meta charset="utf-8">
+<title>BlockChain</title>
+<style type="text/css">
+#zapros {
+	   width: 247px;
+	   border: 2px solid #090;
+	   float: left;
+	   padding: 5px;
+       height: 136px;
+       margin-top: 10px;
+    }
+    #widget {
+	   margin-left: 10px;
+    }  
+    #poyasnenie{
+
+    }
+    #submit {
+	   margin-top: 15px;
+	   margin-left:15px;
+    }
+    #headBlock{
+        height:50px;
+        background-color: white;
+        
+    }
+    body{
+        margin-top:0px;
+        margin-left:10px;
+        margin-right:10px;
+        margin-bottom: 0px;
+
+    }
+    #sandBox{
+        margin-left: 20%;
+        height: 50px;
+        width: 15%;
+    }
+    #FAQ{
+        margin-left: 0px;
+        height: 50px;
+        width: 15%;
+    }
+    #search{
+        margin-left: 0px;
+        height: 50px;
+        width: 15%;
+    }
+    #aboutMe{
+        margin-left: 0px;;
+        height: 50px;
+        width: 15%;
+    }
+    #information{
+        
+    }
+    #opasity{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    }
+     #element{
+            margin-top: 10px;
+            margin-left: 20px;
+            width: 228px;
+            height: 448px;
+            border: solid 1px;
+            margin-right: 10px;
+            border-color: black;
+            float: left;
+            background: url(b250efd3a987e2ba89513af598ea0d92-full.png);
+        }
+        .text1{
+            padding-left: 22px;
+            padding-top: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        .text2{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 60px;
+            color: white;
+            font-size: 20px;
+        }
+        .text3{
+            margin-top: 15px;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            color: white;
+            font-size: 20px;
+        }
+        .input{
+            font-family: 'Lobster', cursive;
+            margin-left: 15px;
+            width: 200px;
+            background-color: white;
+            border-radius: 5px 5px 5px 5px; 
+            height: 30px;
+            font-size: 20px;
+        }
+        .input1{
+            margin-left: 0px;
+            width: 40px;
+            background-color: white;
+            border-radius: 5px 5px 5px 5px; 
+            height: 30px;
+            font-size: 20px;
+        }
+        .input2{
+            margin-left: 5px;
+            width: 200px;
+            background-color: white;
+            border-radius: 7px 7px 7px 7px;  
+            height: 60px;
+            font-weight:bold;
+            font-size: 20px;
+            background-color: rgb(253,187,53);
+        }
+        .validation{
+            margin-top: 15px;
+            margin-left: 28px;
+            width: 180px;
+            background-color: white;
+            font-weight:bold;
+            border-radius: 7px 7px 7px 7px; 
+            height: 35px;
+            font-size: 15px;  
+            background-color: #E6F0FF;
+        }
+</style>
+</head>
+
+<body>
+    <div id="headBlock">
+        <button id="sandBox"></button>
+        <button id="FAQ"></button>
+        <button id="search"></button>
+        <button id="aboutMe"></button>
+    </div>
+    <div id="opasity"></div>
+     <div id="element">
+        <p class="text1">Таблица для создания<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; блоков</p>
+        <p class="text2">Число блоков</p>
+        <input class="input" id="kvadrat" value="1">
+        <p class="text2">Цель (Target)</p>
+        <input class="input" id="target" value="2500">
+        <input class="validation" type="button" onclick="valid()"  id="validation"  value="ПРОВЕРКА БЛОКОВ">
+        <p class="text3">Режим "Блокнот"<input class="input1" onclick="notebook();" id="notebook" type="checkbox"></p>
+        <input class="input2" onclick="drawSquare(id,x2,target1)" id="submit" type="button" value="Применить!">
+    </div>
+            <div id="elementId"></div>
+    <script>
+    $("#elementId").dialog({width: 795, height: 531, title: 'Наглядное пособие по применению блокчейна к проекту'});
+    $(".ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-draggable.ui-resizable").css("background","url(abc312f8797addbc6227bcba928c2612-full.jpg)");
+    $("#elementId").append('<button id="buttonExit"></button>');
+    $("#buttonExit").css({"margin-top":"384px","margin-left":"206px","padding-left":"340px","padding-top":"75px","background":"url(f6cbd5b0be709f8d62379c18c953e9ff-full.jpg)","border-radius":"20px"});
+    $("#buttonExit").click(function(){
+        $("#elementId").dialog("close");
+        $("#opasity").remove();
+    });
+    $("#ui-id-1").css("padding-left","170px");
+    //$(".ui-resizable-handle.ui-resizable-w").append("<div>Тут будет текст.</div>").css({"margin-top":"150px","color":"red","margin-bottom":"150px"})
+    $(".ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close").remove();
+    </script>
+    <!--============== FAQ =============--> 
+    <div id="question" style="display: none">
+                
+        <table style="width: 100%">
+            <tr style="width: 100%">
+                <td style="width: 50%">
+        
+    <div class="accordion" style="width: 100%">
+        <h3>Что такое блокчейн?</h3>
+          <div>
+Блокчейн – огромная база данных, состоящая из последовательных блоков и хранящаяся на множестве компьютеров. Чтобы поддерживать работоспособность системы, блокчейн на каждом ПК синхронизируется с другими участниками сети и берет у них новые блоки.  Блоки хранят всю информацию, которую записывают в блокчейн. Это может быть информация о транзакциях (у биткойна), о голосах чиновников в Гос. Думе или же информация о погоде в прошлую пятницу.
+          </div>
+        <h3>Какие приеимущества блокчейна?</h3>
+          <div>
+              Блокчейн способен децентрализованно и безопасно хранить информацию.
+              
+          </div>
+        <h3>Что такое Хеш-функция? </h3>
+          <div>
+              Хеш-функция - математическое преобразование информации любой длины в короткую, определенной длины строку.
+          </div>
+
+        <h3>Как связаны блокчейн и криптоволюты? </h3>
+          <div>
+            Блокчейн - технология, на которой основаны криптовалюты.
+               
+          </div>
+        <h3>Что обеспечивает безопасность блокчейна?  </h3>
+          <div>
+              Безопасность блокчейна обеспечивает криптозащищенность, которая достигается применением хэш-функций.
+          </div>
+        <h3>Что такое генезис блок?</h3>
+          <div>
+              Генезис блок - самый первый блок в блокчейне. 
+
+          </div>
+        <h3>Что такое майнинг?</h3>
+          <div>
+              Майнинг - если простыми словами - перебор хэшей.
+          </div>
+        
+        
+            </div>
+                </td>
+                <td style="width: 50%">
+            <div class="accordion" style="width: 100%; left: 0px;top: 0px;">
+        
+                
+                        <h3>Что это за сайт и для чего он нужен?</h3>
+          <div>
+              Этот сайт предназначен для иллюстрации работы блокчейна. Вы можете создавать блоки, смотреть надобность каждого из значений в нем, изменять их и проверять блоки на валидность.
+          </div>
+                        <h3>Как создавать блоки?</h3>
+          <div>
+              Слева есть панель “Таблица для создания блоков ”. Выберите количество блоков , цель target (чем меньше цель – тем сложнее создать блок). И нажмите на кнопку “Применить!”.
+          </div>
+                        <h3>В чем преимущество блокчейна?</h3>
+          <div>
+              Создайте 5 блоков. Теперь посмотрите хэш  4 блока и значение поля “Хэш предыдущего блока” в 5 блоке – они одинаковы. Это значит, что каждый последующий блок берет хэш предыдущего блока, тем самым делая непрерывную цепочку.
+          </div>
+                        <h3>Как проверить защиту блокчейна в действии?</h3>
+          <div>
+              Создайте 5 блоков и изменить любое из значений в 3 блоке. Теперь нажмите кнопку “Проверка блоков” в левой панели. Как видите, блокчейн нашел невалидный блок и пометил его и всю последующую  цепочку красным цветом.
+          </div>
+                        <h3>Что значит “Режим “Блокнот”?</h3>
+          <div>
+              Нажмите на поле справа от текста "Режим “Блокнот”, чтобы появилась галочка. А теперь создайте 1 блок. Перед его созданием Вам вылетет поле ввода, куда можно написать любой текст. Еще одно преимущество блокчейна в том, что в него можно записывать не только транзакции, но и любой текст.
+          </div>
+     
+    </div>
+            </td>        
+            </tr> 
+        </table>        
+        
+    </div>
+    <!--============== FAQ =============-->
+    <!--============== ИНСТРУКЦИЯ =============-->
+    <div id="instruction" style="display: none">
+    <img src="Иллюстрация работы скриптов.jpg" >
+    </div>
+    <!--============== ИНСТРУКЦИЯ =============-->
+    <!--============== ОБО МНЕ =============-->
+    <div id="information" style="display: none; margin-left: 20%; margin-top: 10%; width: 50%">
+        <p><span style="color:#0cb90c">Автор и разработчик:</span> Орлов Ярослав Олегович. </p>
+        <img style="width:600px" src="https://i.imgur.com/LXdChsZ.jpg" alt="альтернативный текст">
+        <p><span style="color:#0cb90c">О себе</span>: Мне 16 лет. Я ученик 11 класса МБОУ гимназия им. академика Н.Г.Басова, г.Воронеж. </p> 
+        <p><span style="color:#0cb90c">Владею:</span> Языком Программирования JavaScript и его библиотекой jquery.</p> 
+        <p style="color:#0cb90c">Увлекаюсь: </p>
+        <ul>
+            <li>Разработкой несложных смарт-контрактов</li>
+            <li>Криптовалютами</li>
+            <li>Немного английским языком</li>
+            <li>Криптографией</li>
+            <li>Майнингом</li>
+            <li>Классической музыкой</li>
+        </ul>
+        
+        <p>Знаю, как работают блокчейн, майнинг и транзакции  изнутри, пишу <span style="color:#0cb90c">статьи</span> о криптовалютах и новых проектах на блокчейне:</p>
+        <ul>
+            <li><a href="http://www.rushacker.ru/2018/01/caviar.html">Caviar</a></li>
+            <li><a href="http://www.rushacker.ru/2018/02/emuproject_8.html">EMU</a></li>
+            <li><a href="http://www.rushacker.ru/2018/01/ethic-hub_24.html">ETH HUB</a></li>
+            <li><a href="http://www.rushacker.ru/2018/01/restart-energy.html">Restart Energy</a></li>
+            <li><a href="https://medium.com/@pataponchik3/envion-%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%BC%D0%B0%D0%B9%D0%BD%D0%B8%D0%BD%D0%B3-%D0%B1%D0%B5%D0%B7-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC-202940234052">Envion</a></li>
+            <li><a href="https://medium.com/@pataponchik3/lescovex-%D0%B0%D0%BD%D0%BE%D0%BD%D1%81%D0%B8%D1%80%D1%83%D0%B5%D1%82-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%81%D0%B2%D0%BE%D0%B5%D0%B9-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B8-%D0%BE%D0%B1%D0%BC%D0%B5%D0%BD%D0%B0-%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D1%8B%D0%BC%D0%B8-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%B0%D0%BC%D0%B8-48e66fd6cbbe">Lescovex</a></li>
+            <li><a href="https://medium.com/@pataponchik3/fuzex-%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC-%D1%81-%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%BE%D0%B9-%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%D0%B0%D0%BB%D1%8E%D1%82%D0%B0%D0%BC%D0%B8-7afade46ebc4">FuzeX ...</a></li>
+        </ul>
+        <p>16.09.2017 участвовал в <a href="https://horoshkola.ru/node/58334">ток-шоу "Поколение z"</a>. Был капитаном победившей команды.</p> 
+        <p><span style="color:#0cb90c">Контакты:</span></p>
+<p><a href="https://vk.com/id51175819">https://vk.com/id51175819</a> - ВК</p>
+<p><a href="mailto:zeit7@rambler.ru">zeit7@rambler.ru</a> - почта.</p>
+   
+    </div>
+    <script>$("body").append('<div id="widget"></div>')</script>
+    <!--============== ОБО МНЕ =============-->
+<script src="script.js"></script>
+<script type="text/javascript" src="sha256.js"></script>
+<script>
+var x2=document.getElementById('kvadrat');
+var target1=document.getElementById('target');
+var forma=document.getElementById('submit');
+forma.addEventListener('click',function(){
+	drawSquare(widget,x2.value,target1.value);
+});
+</script>
+    <script>
+    //=================ПЕРЕХОДЫ МЕЖДУ ВКЛАДКАМИ=================
+        function removeSandBox(){                     //УДАЛЕНИЕ ЭЛЕМЕНТОВ ПЕСОЧНИЦЫ
+            $("#element").css("display","none");
+            $("#widget").css("display","none");
+            $("#poyasnenie").css("display","none");
+        }
+        function removeAboutMe(){                     //УДАЛЕНИЕ ЭЛЕМЕНТОВ ОБО МНЕ
+            $("#information").css("display","none");
+        }
+        function removeFAQ(){                     //УДАЛЕНИЕ ЭЛЕМЕНТОВ FAQ
+            $("#question").css("display","none");
+        }
+        function removeInstruction(){                     //УДАЛЕНИЕ ЭЛЕМЕНТОВ ИНСТВУКЦИИ
+            $("#instruction").css("display","none");
+        }
+        
+        function FAQ(){                        //ПЕРЕХОД НА FAQ
+            $("#question").css("display","block");
+        }
+        function sandBox(){                      //ПЕРЕХОД В ПЕСОЧНИЦУ
+            $("#element").css("display","block");
+            $("#widget").css("display","block");
+            $("#poyasnenie").css("display","block");
+        }
+        function aboutMe(){                        //ПЕРЕХОД НА ОБО МНЕ
+            $("#information").css("display","block");
+        }
+        function Instruction(){                        //ПЕРЕХОД НА ИНСТРУКЦИЯ
+            $("#instruction").css("display","block");
+        }
+    //=================ПЕРЕХОДЫ МЕЖДУ ВКЛАДКАМИ=================  
+    $("#sandBox").css("background","rgb(8, 220, 34)").append("ПЕСОЧНИЦА");
+    $("#FAQ").css("background","rgb(8, 220, 34)").append("FAQ и ИНСТРУКЦИЯ");
+    $("#search").css("background","rgb(8, 220, 34)").append("Как работает алгоритм");
+    $("#aboutMe").css("background","rgb(8, 220, 34)").append("ОБО МНЕ");
+    $("#FAQ").click(function(){
+        removeSandBox();
+        removeAboutMe();
+        removeInstruction();
+        FAQ();
+    });
+    $("#sandBox").click(function(){
+        removeFAQ();
+        removeAboutMe();
+        removeInstruction();
+        sandBox();
+    });
+    $("#aboutMe").click(function(){
+        removeFAQ();
+        removeSandBox();
+        removeInstruction();
+        aboutMe();
+    });
+    $("#search").click(function(){
+        removeFAQ();
+        removeAboutMe();
+        removeSandBox();
+        Instruction();
+    });
+        $( function() {
+    $( ".accordion" ).accordion({
+      collapsible: true,
+      heightStyle: "content",
+      active: false
+    });
+  } );
+    </script>
+
+</body>
+</html>
